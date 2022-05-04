@@ -1,0 +1,52 @@
+:root {
+  --color-main-blue: #23d5e2;
+  --color-main-gray: #dee6ef;
+  --color-main-yellow: #de9108;
+  --color-main-purple: #641bf5;
+  --color-light-gray: #75818c;
+  --color-main-red: #E53E3E;
+  --color-light-red: #F56565;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --spacing-minor-scale: 4px;
+  --spacing-large-scale: 8px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+form {
+  margin: 0;
+}
+
+fieldset {
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: calc(var(--spacing-large-scale) * 10) 1fr;
+  grid-template-areas:
+    "header"
+    "app";
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}

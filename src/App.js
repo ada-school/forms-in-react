@@ -1,8 +1,15 @@
+import Header from "./components/Header";
+import AppBody from "./components/AppBody";
+import FormView from "./views/FormView";
+
 function App() {
   return (
-    <div>
-      <h1>Forms in React...</h1>
-    </div>
+    <>
+      <Header />
+      <AppBody>
+        <FormView />
+      </AppBody>
+    </>
   );
 }
 
