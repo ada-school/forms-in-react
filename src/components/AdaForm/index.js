@@ -7,7 +7,7 @@ export default function AdaForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState(undefined);
-  const [hours, setHours] = useState(undefined);
+  const [hours, setHours] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isAgree, setIsAgree] = useState(false);
@@ -16,13 +16,17 @@ export default function AdaForm() {
   const validateForm = () => {
     const formErrors = {};
     if (firstName.length > 12) {
-      formErrors.firstName = "First name is too long";
+      formErrors.firstName = "First name is too long.";
     }
     if (lastName.length > 12) {
-      formErrors.lastName = "Last name is too long";
+      formErrors.lastName = "Last name is too long.";
+    }
+    console.log(gender);
+    if (!gender || gender === "Select one") {
+      formErrors.gender = "Please choose a gender.";
     }
     if (password.length < 8) {
-      formErrors.password = "Password is too short";
+      formErrors.password = "Password is too short.";
     }
 
     if (Object.keys(formErrors).length > 0) {
@@ -101,11 +105,18 @@ export default function AdaForm() {
       </fieldset>
       <fieldset className="form-field-container">
         <div className="form-field-group">
+          {errors?.gender && (
+            <span id="ada-form-gender-error" className="form-field-error">
+              {errors.gender}
+            </span>
+          )}
           <select
             className="form-field"
             id="ada-form-gender"
             placeholder="Choose one"
             required
+            aria-invalid={errors?.gender ? "true" : "false"}
+            aria-errormessage="ada-form-gender-error"
             value={gender}
             onChange={(event) => setGender(event.currentTarget.value)}
           >
